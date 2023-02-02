@@ -17,8 +17,12 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Switch Buffers
+map("n", "<Tab>", ":bn<CR>", opts)
+
 -- Rename
 map("n", "<leader>rn", ":lua require('renamer').rename()<CR>", opts)
+map("i", "<F2>", ":lua require('renamer').rename()<CR>", opts)
 
 -- will paste but not copy replaced text
 map("x", "<leader>p", '"_dP', opts)
@@ -38,6 +42,7 @@ map("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 map("n", "<leader>fm", ":Telescope media_files<cr>", opts)
 map("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 map("n", "<leader>fb", ":Telescope buffers<cr>", opts)
+map("n", "<Home>", ":Telescope buffers<cr>", opts)
 map("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 map(
   "n",
@@ -45,6 +50,10 @@ map(
   ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
   opts
 )
+
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+map("n", "zR", ':lua require("ufo").openAllFolds<CR>', opts)
+map("n", "zM", ':lua require("ufo").closeAllFolds<CR>', opts)
 
 -- Commenting
 map("n", "<leader>/", ':lua require("Comment.api").toggle.linewise.current()<cr><ESC>', opts)
