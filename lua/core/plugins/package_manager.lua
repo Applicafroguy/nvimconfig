@@ -22,6 +22,7 @@ return require("packer").startup(function(use)
   use("nvim-lua/plenary.nvim")
   use("nvim-telescope/telescope.nvim")
   use("nvim-telescope/telescope-media-files.nvim")
+  use("nvim-telescope/telescope-ui-select.nvim")
 
   use("numToStr/Comment.nvim")
   use("lukas-reineke/indent-blankline.nvim")
@@ -57,6 +58,14 @@ return require("packer").startup(function(use)
 
   -- Formatting
   use("jose-elias-alvarez/null-ls.nvim")
+  use({
+    "phaazon/hop.nvim",
+    branch = "v2", -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+    end,
+  })
 
   -- Rename
   use({
