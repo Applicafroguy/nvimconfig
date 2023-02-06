@@ -27,6 +27,7 @@ return require("packer").startup(function(use)
   use("lukas-reineke/indent-blankline.nvim")
   use("windwp/nvim-autopairs")
   use("windwp/nvim-ts-autotag")
+  use("harrisoncramer/jump-tag")
 
   use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
   use({

@@ -17,6 +17,20 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Move Lines
+map("n", "<A-j>", ":m .+1<cr>==", { desc = "Move down" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
+map("n", "<A-k>", ":m .-2<cr>==", { desc = "Move up" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
+
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
 -- Switch Buffers
 map("n", "<Tab>", ":bn<CR>", opts)
 
@@ -66,3 +80,9 @@ map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
 map("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
 map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
 map("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)
+
+-- Jump tag
+map("n", "<leader>55", ':lua require("jump-tag").jumpParent()<CR>', opts)
+map("n", "<leader>5n", ':lua require("jump-tag").jumpNexSibling()<CR>', opts)
+map("n", "<leader>5p", ':lua require("jump-tag").jumpPrevSibling()<CR>', opts)
+map("n", "<leader>5c", ':lua require("jump-tag").jumpChild()<CR>', opts)
