@@ -20,6 +20,9 @@ map("n", "<C-l>", "<C-w>l", opts)
 -- Hope
 map("n", "<S-h>", ":HopWord<cr>", opts)
 
+-- Zenmode
+map("n", "<F11>", ":ZenMode<cr>", opts)
+
 -- Move Lines
 map("n", "<A-j>", ":m .+1<cr>==", { desc = "Move down" })
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
@@ -62,10 +65,10 @@ map("n", "<leader>fb", ":Telescope buffers<cr>", opts)
 map("n", "<Home>", ":Telescope buffers<cr>", opts)
 map("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 map(
-  "n",
-  "<leader>ft",
-  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
-  opts
+	"n",
+	"<leader>ft",
+	":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
+	opts
 )
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
