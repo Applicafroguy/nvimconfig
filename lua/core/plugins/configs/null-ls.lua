@@ -7,8 +7,23 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
   formatting.stylua,
-  formatting.prettierd,
-  diagnostics.eslint,
+  formatting.prettierd.with({
+    condition = function(utils)
+      return utils.has_file({ ".prettierrc.js" })
+    end,
+  }),
+  diagnostics.eslint_d.with({
+    condition = function(utils)
+      local has_file = utils.root_has_file
+      local has = has_file({ ".eslintrc.js" })
+          or has_file({ ".eslintrc.json" })
+          or has_file({ ".eslintrc.yml" })
+          or has_file({ ".eslintrc" })
+          or has_file({ ".eslintrc.cjs" })
+          or has_file({ "eslint.config.js" })
+      return utils.root_has_file({ ".eslintrc.js" })
+    end,
+  }),
   completion.spell,
 }
 
