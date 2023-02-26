@@ -16,7 +16,9 @@ local opts = {
     condition = function(utils)
       local has_eslint = root_has_file(eslint_root_files)(utils)
       local has_prettier = root_has_file(prettier_root_files)(utils)
-      return has_eslint and not has_prettier
+      print(has_prettier, has_eslint)
+      -- return has_eslint and not has_prettier
+      return has_eslint 
     end,
   },
   eslint_diagnostics = {
@@ -38,7 +40,8 @@ local code_actions = null_ls.builtins.code_actions
 
 local sources = {
   formatting.stylua,
-  formatting.prettierd.with(opts.prettier_formatting),
+  -- formatting.prettierd.with(opts.prettier_formatting),
+  -- formatting.prettier_eslint.with(opts.prettier_formatting),
   formatting.eslint.with(opts.eslint_formatting),
   formatting.stylua.with(opts.stylua_formatting),
   diagnostics.eslint.with(opts.eslint_diagnostics),
@@ -47,21 +50,30 @@ local sources = {
 }
 
 local function on_attach(client, bufnr)
-  -- if client.server_capabilities.document_formatting then
-  -- 	vim.cmd("command! -buffer Formatting lua vim.lsp.buf.formatting()")
-  -- 	vim.cmd("command! -buffer FormattingSync lua vim.lsp.buf.formatting_sync()")
-  -- end
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ bufnr = bufnr })
-        -- vim.lsp.buf.formatting_sync()
-      end,
-    })
+  if client.server_capabilities.documentFormattingProvider then
+    -- vim.cmd("command! -buffer Formatting lua vim.lsp.buf.formatting()")
+    -- vim.cmd("command! -buffer FormattingSync lua vim.lsp.buf.formatting_sync()")
+  	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+  	vim.api.nvim_create_autocmd("BufWritePre", {
+  		group = augroup,
+  		buffer = bufnr,
+  		callback = function()
+  			vim.lsp.buf.format({ bufnr = bufnr, async = true })
+  			-- vim.lsp.buf.formatting_sync()
+  		end,
+  	})
   end
+  -- if client.supports_method("textDocument/formatting") then
+  -- 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+  -- 	vim.api.nvim_create_autocmd("BufWritePre", {
+  -- 		group = augroup,
+  -- 		buffer = bufnr,
+  -- 		callback = function()
+  -- 			vim.lsp.buf.format({ bufnr = bufnr })
+  -- 			-- vim.lsp.buf.formatting_sync()
+  -- 		end,
+  -- 	})
+  -- end
 end
 
 null_ls.setup({
