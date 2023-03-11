@@ -48,6 +48,9 @@ local plugins = {
 	"folke/which-key.nvim",
 	"jose-elias-alvarez/typescript.nvim", -- additional functionality for typescript server (e.g. rename file & update imports)
 
+	-- Navigation
+	"ThePrimeagen/harpoon",
+
 	-- Lsp
 	"neovim/nvim-lspconfig",
 	"hrsh7th/nvim-cmp", -- Autocompletion plugin

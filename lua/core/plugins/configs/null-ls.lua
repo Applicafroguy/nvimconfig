@@ -10,6 +10,7 @@ local sources = {
 	formatting.stylua,
 	-- diagnostics.eslint,
 	completion.spell,
+	-- require("typescript.extensions.null-ls.code-actions"),
 }
 --
 local function on_attach(client, bufnr)
