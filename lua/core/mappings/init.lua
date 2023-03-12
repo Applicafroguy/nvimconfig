@@ -77,8 +77,10 @@ map("n", "zR", ':lua require("ufo").openAllFolds<CR>', options(""))
 map("n", "zM", ':lua require("ufo").closeAllFolds<CR>', options(""))
 
 -- Commenting
-map("n", "<leader>/", ':lua require("Comment.api").toggle.linewise.current()<cr><ESC>', options(""))
-map("v", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', options(""))
+-- map("n", "<leader>/", ':lua require("Comment.api").toggle.linewise.current()<cr><ESC>', options(""))
+map("n", "<leader>/", ":ToggleComment<cr>", options(""))
+map("v", "<leader>/", "ToggleCommentSelection<CR>", options(""))
+-- map("v", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', options(""))
 
 -- Diagnis
 map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", options(""))
