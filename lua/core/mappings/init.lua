@@ -33,10 +33,10 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 map("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize -2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize +2<cr>", { desc = "Decrease window height" })
-map("n", "<C-Left>", "<cmd>vertical resize +2<cr>", { desc = "Decrease window width" })
-map("n", "<C-Right>", "<cmd>vertical resize -2<cr>", { desc = "Increase window width" })
+map("n", "<C-Up>", "<cmd>resize -2<cr>", { desc = "Increase window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Switch Buffers
 map("n", "<Tab>", ":bn<CR>", options(""))
@@ -46,13 +46,10 @@ map("n", "<leader>rn", ":lua require('renamer').rename()<CR>", options(""))
 map("i", "<F2>", ":lua require('renamer').rename()<CR>", options(""))
 
 -- will paste but not copy replaced text
-map("x", "<leader>p", '"_dP', options(""))
+map("x", "p", '"_dP', options(""))
 
 -- Clear Highlight
 map("n", "<esc>", ":nohlsearch<CR>", options(""))
-
--- PackerSync
-map("n", "<S-u>", ":PackerSync<CR>", options(""))
 
 -- NvimTree
 map("n", "<C-n>", ":NvimTreeToggle<CR>", options(""))
@@ -79,7 +76,7 @@ map("n", "zM", ':lua require("ufo").closeAllFolds<CR>', options(""))
 -- Commenting
 -- map("n", "<leader>/", ':lua require("Comment.api").toggle.linewise.current()<cr><ESC>', options(""))
 map("n", "<leader>/", ":ToggleComment<cr>", options(""))
-map("v", "<leader>/", ":<ESC>ToggleCommentSelection<CR>", options(""))
+map("v", "<leader>/", "<ESC><CMD>ToggleCommentSelection<CR>", options(""))
 -- map("v", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', options(""))
 
 -- Diagnis
