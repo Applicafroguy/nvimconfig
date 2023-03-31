@@ -59,6 +59,8 @@ local servers = {
 	"tsserver",
 	"tailwindcss",
 	"volar",
+	"jsonls",
+	"yamlls",
 }
 
 local on_attach = function(client, bufnr)
@@ -114,27 +116,27 @@ for _, lsp in pairs(servers) do
 
 	if lsp == "angularls" then
 		local root_dir = vim.fn.getcwd()
-		-- local project_library_path = root_dir .. "/node_modules"
-		-- local cmd = {
-		-- 	"ngserver",
-		-- 	"--stdio",
-		-- 	"--tsProbeLocations",
-		-- 	project_library_path,
-		-- 	"--ngProbeLocations",
-		-- 	project_library_path,
-		-- }
-		-- setup.cmd = cmd
 		setup.root_dir = function()
 			return root_dir
 		end
-		-- setup.on_new_config = function(new_config, new_root_dir)
-		-- 	new_config.cmd = cmd
-		-- end
 	end
 
 	if lsp == "tailwindcss" then
 		settings.tailwindCSS = {
 			classAttributes = { "class", "className", "classList" },
+		}
+	end
+
+	if lsp == "jsonls" then
+		settings.json = {
+			schemas = require("schemastore").json.schemas(),
+			validate = { enable = true },
+		}
+	end
+
+	if lsp == "yamlls" then
+		settings.yaml = {
+			schemas = require("schemastore").yaml.schemas(),
 		}
 	end
 

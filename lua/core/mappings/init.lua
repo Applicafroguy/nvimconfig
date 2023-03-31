@@ -19,7 +19,8 @@ map("n", "<C-l>", "<C-w>l", options(""))
 
 -- Navigation
 map("n", "<S-h>", ":HopWord<cr>", options(""))
-map("n", "<S-j> ", ":lua require('harpoon.mark').add_file()<cr>", options("Harpoon marker add"))
+map("n", "<S-m>", ":lua require('harpoon.mark').add_file()<cr>", options("Harpoon marker add"))
+map("n", "<S-mm>", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options("Harpoon marker add"))
 
 -- Zenmode
 map("n", "<F11>", ":ZenMode<cr>", options(""))
@@ -39,7 +40,7 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window wi
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Switch Buffers
-map("n", "<Tab>", ":bn<CR>", options(""))
+map("n", "<Tab>", ":bn<CR>", options("Swithc Buffers"))
 
 -- Rename
 map("n", "<leader>rn", ":lua require('renamer').rename()<CR>", options(""))

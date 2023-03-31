@@ -49,7 +49,14 @@ local plugins = {
 	},
 	-- astro
 	"wuelnerdotexe/vim-astro",
-
+	"nvim-telescope/telescope-file-browser.nvim",
+	"b0o/schemastore.nvim",
+	{
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 	{ "echasnovski/mini.nvim", branch = "stable" },
 	-- {
 	-- 	"Applicafroguy/astro-comm",
