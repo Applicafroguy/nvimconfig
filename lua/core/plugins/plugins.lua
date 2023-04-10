@@ -110,7 +110,6 @@ local plugins = {
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-refactor",
-	"nvim-treesitter/playground",
 }
 
 local opts = {}
