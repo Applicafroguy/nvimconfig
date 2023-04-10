@@ -33,6 +33,9 @@ map("n", "<A-k>", ":m .-2<cr>==", { desc = "Move up" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 map("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
 
+-- Remove Buffer
+map("i", "<leader>bd", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
+
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Down>", "<cmd>resize +2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Up>", "<cmd>resize -2<cr>", { desc = "Increase window height" })
@@ -76,8 +79,8 @@ map("n", "zM", ':lua require("ufo").closeAllFolds<CR>', options(""))
 
 -- Commenting
 -- map("n", "<leader>/", ':lua require("Comment.api").toggle.linewise.current()<cr><ESC>', options(""))
-map("n", "<leader>/", ":ToggleComment<cr>", options(""))
-map("v", "<leader>/", "<ESC><CMD>ToggleCommentSelection<CR>", options(""))
+-- map("n", "<leader>/", ":ToggleComment<cr>", options(""))
+-- map("v", "<leader>/", "<ESC><CMD>ToggleCommentSelection<CR>", options(""))
 -- map("v", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', options(""))
 
 -- Diagnis

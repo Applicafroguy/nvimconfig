@@ -1,1 +1,1 @@
-require("mini.surround").setup()
+

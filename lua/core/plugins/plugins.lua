@@ -11,14 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local astro_comm = {
+--[[local astro_comm = {
 	"Applicafroguy/astro-comm",
 	branch = "main",
 	dependencies = {
 		{ "numToStr/Comment.nvim" },
 	},
-}
-
+} --]]
 if os.getenv("MACHINE") == "tg-desctop" then
 	-- For Dev
 	astro_comm = { dir = "/home/tg/Projects/OpenSource/NVIM-Plugins/astro-comm" }
@@ -30,7 +29,12 @@ local plugins = {
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
 	"bluz71/vim-nightfly-guicolors",
-	astro_comm,
+	{
+		"folke/tokyonight.nvim",
+		lazy = true,
+		opts = { style = "moon" },
+	},
+	--astro_comm,
 
 	-- Telescope
 	"nvim-lua/plenary.nvim",
@@ -57,7 +61,6 @@ local plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	{ "echasnovski/mini.nvim", branch = "stable" },
 	-- {
 	-- 	"Applicafroguy/astro-comm",
 	-- 	branch = "main",
@@ -65,7 +68,7 @@ local plugins = {
 	-- 		{ "numToStr/Comment.nvim" },
 	-- 	},
 	-- },
-	"numToStr/Comment.nvim",
+	-- "numToStr/Comment.nvim",
 	"lukas-reineke/indent-blankline.nvim",
 	"windwp/nvim-autopairs",
 	"windwp/nvim-ts-autotag",
@@ -102,11 +105,46 @@ local plugins = {
 	},
 
 	"Olical/conjure",
-
+	{ "echasnovski/mini.bufremove", version = false },
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
+	{
+		"echasnovski/mini.pairs",
+		event = "VeryLazy",
+		config = function(_, opts)
+			require("mini.pairs").setup(opts)
+		end,
+	},
+	{ "echasnovski/mini.surround", version = false },
+	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
+	{
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
+		opts = {
+			hooks = {
+				pre = function()
+					require("ts_context_commentstring.internal").update_commentstring({})
+				end,
+			},
+			mappings = {
+				-- Toggle comment (like `gcip` - comment inner paragraph) for both
+				-- Normal and Visual modes
+				comment = "<leader>/",
+
+				-- Toggle comment on current line
+				comment_line = "<leader>/",
+
+				-- Define 'comment' textobject (like `dgc` - delete whole comment block)
+				textobject = "<leader>/",
+			},
+		},
+		config = function(_, opts)
+			require("mini.comment").setup(opts)
+		end,
+	},
+	{ "tpope/vim-repeat", event = "VeryLazy" },
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-refactor",
