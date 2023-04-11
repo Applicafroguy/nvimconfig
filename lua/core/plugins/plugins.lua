@@ -144,7 +144,7 @@ local plugins = {
 			require("mini.comment").setup(opts)
 		end,
 	},
-	-- { "tpope/vim-repeat", event = "VeryLazy" },
+	{ "tpope/vim-repeat", event = "VeryLazy" },
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-refactor",
