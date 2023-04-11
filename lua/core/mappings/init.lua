@@ -34,7 +34,7 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 map("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
 
 -- Remove Buffer
-map("i", "<leader>bd", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
+map("n", "<leader>bd", "<Esc>:lua MiniBufremove.unshow()", options("Delete Buffer"))
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Down>", "<cmd>resize +2<cr>", { desc = "Decrease window height" })

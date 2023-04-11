@@ -18,10 +18,10 @@ vim.opt.rtp:prepend(lazypath)
 		{ "numToStr/Comment.nvim" },
 	},
 } --]]
-if os.getenv("MACHINE") == "tg-desctop" then
-	-- For Dev
-	astro_comm = { dir = "/home/tg/Projects/OpenSource/NVIM-Plugins/astro-comm" }
-end
+-- if os.getenv("MACHINE") == "tg-desctop" then
+-- 	-- For Dev
+-- 	astro_comm = { dir = "/home/tg/Projects/OpenSource/NVIM-Plugins/astro-comm" }
+-- end
 
 local plugins = {
 	"arcticicestudio/nord-vim",
@@ -144,7 +144,7 @@ local plugins = {
 			require("mini.comment").setup(opts)
 		end,
 	},
-	{ "tpope/vim-repeat", event = "VeryLazy" },
+	-- { "tpope/vim-repeat", event = "VeryLazy" },
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-refactor",
