@@ -11,6 +11,9 @@ g.mapleader = " "
 -- Save
 map("n", "<C-s>", ":w<CR>", options(""))
 
+-- Fix Vue
+map("n", "<C-x>", ":write | edit | TSBufEnable highlight<CR>", options("Fix Vue white highlight"))
+
 -- Switch Windows
 map("n", "<C-h>", "<C-w>h", options(""))
 map("n", "<C-j>", "<C-w>j", options(""))
