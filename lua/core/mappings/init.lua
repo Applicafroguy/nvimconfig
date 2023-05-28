@@ -2,8 +2,8 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 
 local options = function(desc)
-	local opts = { noremap = true, silent = true, desc = desc }
-	return opts
+  local opts = { noremap = true, silent = true, desc = desc }
+  return opts
 end
 
 g.mapleader = " "
@@ -37,7 +37,8 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 map("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
 
 -- Remove Buffer
-map("n", "<leader>bd", ":lua MiniBufremove.unshow()<cr>", options("Delete Buffer"))
+map("n", "<leader>bd", ":lua MiniBufremove.delete(0,false)<cr>", options("Delete Buffer"))
+map("n", "<leader>bD", ":lua MiniBufremove.delete(0,true)<cr>", options("Delete Buffer"))
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Down>", "<cmd>resize +2<cr>", { desc = "Decrease window height" })
@@ -70,10 +71,10 @@ map("n", "<leader>fb", ":Telescope buffers<cr>", options(""))
 map("n", "<Home>", ":Telescope buffers<cr>", options(""))
 map("n", "<leader>fh", ":Telescope help_tags<cr>", options(""))
 map(
-	"n",
-	"<leader>ft",
-	":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
-	options("")
+  "n",
+  "<leader>ft",
+  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
+  options("")
 )
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
