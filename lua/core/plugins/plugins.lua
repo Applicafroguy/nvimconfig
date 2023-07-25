@@ -41,7 +41,12 @@ local plugins = {
   "nvim-telescope/telescope.nvim",
   "nvim-telescope/telescope-media-files.nvim",
   "nvim-telescope/telescope-ui-select.nvim",
-
+  {
+    "andrewferrier/wrapping.nvim",
+    config = function()
+      require("wrapping").setup()
+    end
+  },
   "folke/zen-mode.nvim",
   {
     "glepnir/lspsaga.nvim",
@@ -55,7 +60,7 @@ local plugins = {
     "rcarriga/nvim-notify",
     keys = {
       {
-        "<leader>un",
+        "<leader>q",
         function()
           require("notify").dismiss({ silent = true, pending = true })
         end,
@@ -214,6 +219,9 @@ local plugins = {
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
   "nvim-treesitter/nvim-treesitter-refactor",
+  { 'akinsho/git-conflict.nvim', version = "*", config = true },
+  "lewis6991/gitsigns.nvim",
+  "tpope/vim-fugitive"
 }
 
 local opts = {}
