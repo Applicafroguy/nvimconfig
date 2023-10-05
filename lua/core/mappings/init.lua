@@ -24,7 +24,10 @@ map("n", "<C-l>", "<C-w>l", options(""))
 map("n", "<S-h>", ":HopWord<cr>", options(""))
 map("n", "<S-m>", ":lua require('harpoon.mark').add_file()<cr>", options("Harpoon marker add"))
 map("n", "<leader>m", ":lua require('harpoon.mark').add_file()<cr>", options("Harpoon marker add"))
-map("n", "<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options("Harpoon marks menu"))
+map("n", "<leader>.", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options("Harpoon marks menu"))
+map("n", "<leader>n", ":lua require('harpoon.ui').nav_next()<cr>", options("Harpoon navigates to next mark"))
+map("n", "<leader>b", ":lua require('harpoon.ui').nav_prev() <cr>", options("Harpoon navigates to previous mark"))
+map("n", "<leader>hd", ":lua require('harpoon.ui').rm_file()<cr>", options("Harpoon remove mark"))
 map("n", "<leader>,", ":Telescope harpoon marks<cr>", options("Harpoon view marks"))
 
 -- Zenmode
@@ -62,21 +65,21 @@ map("x", "p", '"_dP', options(""))
 map("n", "<esc>", ":nohlsearch<CR>", options(""))
 
 -- NvimTree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", options(""))
-map("n", "<C-e>", ":NvimTreeFocus<CR>", options(""))
+map("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", options("Toggles NvimTree to selected buffer"))
+map("n", "<C-e>", ":NvimTreeFindFile<CR>", options(""))
 
 -- Telescope
-map("n", "<leader>ff", ":Telescope find_files<cr>", options(""))
+map("n", "<leader>ff", ":Telescope find_files<cr>", options("Find Files"))
 map("n", "<leader>fm", ":Telescope media_files<cr>", options(""))
 map("n", "<leader>fg", ":Telescope live_grep<cr>", options(""))
-map("n", "<leader>fb", ":Telescope buffers<cr>", options(""))
+map("n", "<leader>fb", ":Telescope buffers<cr>", options("Find Buffers"))
 map("n", "<Home>", ":Telescope buffers<cr>", options(""))
 map("n", "<leader>fh", ":Telescope help_tags<cr>", options(""))
 map(
   "n",
   "<leader>ft",
   ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
-  options("")
+  options("Find Files in dropdown")
 )
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
@@ -98,7 +101,7 @@ map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", options(""))
 map("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", options(""))
 
 -- Jump tag
-map("n", "<leader>55", ':lua require("jump-tag").jumpParent()<CR>', options(""))
-map("n", "<leader>5n", ':lua require("jump-tag").jumpNexSibling()<CR>', options(""))
-map("n", "<leader>5p", ':lua require("jump-tag").jumpPrevSibling()<CR>', options(""))
-map("n", "<leader>5c", ':lua require("jump-tag").jumpChild()<CR>', options(""))
+map("n", "<leader>55", ':lua require("jump-tag").jumpParent()<CR>', options("Jump Parent Tag"))
+map("n", "<leader>5n", ':lua require("jump-tag").jumpNexSibling()<CR>', options("Jump Next Sibling Tag"))
+map("n", "<leader>5p", ':lua require("jump-tag").jumpPrevSibling()<CR>', options("Jump Prev Sibling Tag"))
+map("n", "<leader>5c", ':lua require("jump-tag").jumpChild()<CR>', options("Jump Child Tag"))
