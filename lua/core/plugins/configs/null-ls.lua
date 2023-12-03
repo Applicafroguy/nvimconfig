@@ -4,7 +4,6 @@ local formatting = null_ls.builtins.formatting
 local completion = null_ls.builtins.completion
 local diagnostics = null_ls.builtins.diagnostics
 
-
 local root_has_file = function(files)
   return function(utils)
     return utils.root_has_file(files)
@@ -40,6 +39,7 @@ local sources = {
   formatting.stylua,
   formatting.black,
   formatting.prettierd.with(opts.prettier_formatting),
+  formatting.leptosfmt,
   -- formatting.eslint.with(opts.eslint_formatting),
   formatting.stylua.with(opts.stylua_formatting),
   diagnostics.eslint.with(opts.eslint_diagnostics),

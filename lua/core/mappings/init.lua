@@ -22,13 +22,6 @@ map("n", "<C-l>", "<C-w>l", options(""))
 
 -- Navigation
 map("n", "<S-h>", ":HopWord<cr>", options(""))
-map("n", "<S-m>", ":lua require('harpoon.mark').add_file()<cr>", options("Harpoon marker add"))
-map("n", "<leader>m", ":lua require('harpoon.mark').add_file()<cr>", options("Harpoon marker add"))
-map("n", "<leader>.", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options("Harpoon marks menu"))
-map("n", "<leader>n", ":lua require('harpoon.ui').nav_next()<cr>", options("Harpoon navigates to next mark"))
-map("n", "<leader>b", ":lua require('harpoon.ui').nav_prev() <cr>", options("Harpoon navigates to previous mark"))
-map("n", "<leader>hd", ":lua require('harpoon.ui').rm_file()<cr>", options("Harpoon remove mark"))
-map("n", "<leader>,", ":Telescope harpoon marks<cr>", options("Harpoon view marks"))
 
 -- Zenmode
 map("n", "<F11>", ":ZenMode<cr>", options(""))
