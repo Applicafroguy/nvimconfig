@@ -3,7 +3,7 @@ local g = vim.g
 
 opt.autowrite = true           -- Enable auto write
 opt.clipboard = "unnamedplus"  -- Sync with system clipboard
-opt.completeopt = "menu,menuone,noselect"
+-- opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 3           -- Hide * markup for bold and italic
 opt.confirm = true             -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true          -- Enable highlighting of the current line
@@ -50,6 +50,8 @@ vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+vim.o.breakindent = true
+vim.o.completeopt = "menuone,noselect"
 
 -- Fix markdown indentation settings
 g.markdown_recommended_style = 0

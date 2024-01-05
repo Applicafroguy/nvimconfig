@@ -29,6 +29,9 @@ local plugins = {
   "nvim-tree/nvim-web-devicons",
   "nvim-lualine/lualine.nvim",
   "bluz71/vim-nightfly-guicolors",
+  { "catppuccin/nvim",                     name = "catppuccin", priority = 1000 },
+  --- Add Tabby plugin
+  "TabbyML/vim-tabby",
   {
     "folke/tokyonight.nvim",
     lazy = true,
@@ -121,7 +124,7 @@ local plugins = {
   -- 	},
   -- },
   -- "numToStr/Comment.nvim",
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl",                               opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",        opts = {} },
   -- {
   --   "lukas-reineke/indent-blankline.nvim",
   --   event = { "BufReadPost", "BufNewFile" },
@@ -141,7 +144,7 @@ local plugins = {
     opts = {},
   },
 
-  { "kevinhwang91/nvim-ufo",               dependencies = "kevinhwang91/promise-async" },
+  { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
   "folke/which-key.nvim",
   "jose-elias-alvarez/typescript.nvim", -- additional functionality for typescript server (e.g. rename file & update imports)
 
@@ -170,6 +173,14 @@ local plugins = {
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
+  {
+    "doxnit/cmp-luasnip-choice",
+    config = function()
+      require("cmp_luasnip_choice").setup({
+        auto_open = true, -- Automatically open nvim-cmp on choice node (default: true)
+      })
+    end,
+  },
   "onsails/lspkind.nvim",
   {
     "williamboman/mason.nvim",
@@ -178,7 +189,7 @@ local plugins = {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
   },
-  { "phaazon/hop.nvim",           branch = "v2" },
+  { "phaazon/hop.nvim",      branch = "v2" },
   {
     "David-Kunz/gen.nvim",
     event = "VeryLazy",
@@ -205,7 +216,7 @@ local plugins = {
   },
 
   "Olical/conjure",
-  { "echasnovski/mini.bufremove", version = false },
+  { "echasnovski/mini.bufremove",                  version = false },
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -265,6 +276,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     lazy = true,
   },
+  "xiyaowong/nvim-transparent",
   "nvim-treesitter/nvim-treesitter-refactor",
   { "akinsho/git-conflict.nvim", version = "*",     config = true },
   "lewis6991/gitsigns.nvim",
