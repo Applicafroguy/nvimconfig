@@ -37,14 +37,11 @@ local opts = {
 
 local sources = {
   formatting.stylua,
-  formatting.black,
   formatting.prettierd.with(opts.prettier_formatting),
   formatting.leptosfmt,
   -- formatting.eslint.with(opts.eslint_formatting),
   formatting.stylua.with(opts.stylua_formatting),
   diagnostics.eslint.with(opts.eslint_diagnostics),
-  diagnostics.mypy,
-  diagnostics.ruff,
   completion.spell,
 }
 --

@@ -2,8 +2,8 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 
 local options = function(desc)
-  local opts = { noremap = true, silent = true, desc = desc }
-  return opts
+	local opts = { noremap = true, silent = true, desc = desc }
+	return opts
 end
 
 g.mapleader = " "
@@ -69,10 +69,10 @@ map("n", "<leader>fb", ":Telescope buffers<cr>", options("Find Buffers"))
 map("n", "<Home>", ":Telescope buffers<cr>", options(""))
 map("n", "<leader>fh", ":Telescope help_tags<cr>", options(""))
 map(
-  "n",
-  "<leader>ft",
-  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
-  options("Find Files in dropdown")
+	"n",
+	"<leader>ft",
+	":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>",
+	options("Find Files in dropdown")
 )
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
