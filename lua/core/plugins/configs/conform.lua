@@ -1,3 +1,8 @@
+return {
+		"stevearc/conform.nvim",
+		lazy = true,
+config = function()
+
 local conform = require("conform")
 
 local formatters_by_ft = {
@@ -7,6 +12,7 @@ local formatters_by_ft = {
 	rust = { "leptosfmt", "rustfmt" },
 	-- Use a sub-list to run only the first available formatter
 	javascript = { { "prettierd", "prettier" } },
+	css = { { "prettierd", "prettier" } },
 }
 
 local format_on_save = {
@@ -22,3 +28,6 @@ conform.setup({
 	format_on_save = format_on_save,
 	formatters = formatters,
 })
+
+  end
+}

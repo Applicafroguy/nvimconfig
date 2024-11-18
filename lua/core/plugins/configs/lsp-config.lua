@@ -1,3 +1,12 @@
+return {
+  "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        { "antosha417/nvim-lsp-file-operations", config = true },
+  }, 
+  config = function()
+
 -- import typescript plugin safely
 local typescript_setup, typescript = pcall(require, "typescript")
 if not typescript_setup then
@@ -54,10 +63,11 @@ local servers = {
 	"rust_analyzer",
 	"angularls",
 	-- "astro",
-	-- "cssls",
+	-- "css_lsp",
+	"cssls",
 	-- "emmet_ls",
 	"html",
-	"tsserver",
+	"ts_ls",
 	"tailwindcss",
 	"volar",
 	"jsonls",
@@ -66,9 +76,9 @@ local servers = {
 
 local on_attach = function(client, bufnr)
 	-- typescript specific keymaps (e.g. rename file and update imports)
-	if client.name == "tsserver" then
+	if client.name == "ts_ls" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-		keymap.set("n", "<leader>oi", ":OrganiseImports<CR>") -- organize imports
+		keymap.set("n", "<leader>i", ":OrganiseImports<CR>") -- organize imports
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables
 	end
 
@@ -193,3 +203,6 @@ for _, lsp in pairs(servers) do
 
 	lspconfig[lsp].setup(setup)
 end
+
+  end
+}
