@@ -14,7 +14,6 @@ return {
 				"angularls",
 				"bashls",
 				-- "eslint",
-				-- "emmet_ls",
 				"html",
 				"ts_ls",
 				"ruff_lsp",
@@ -32,6 +31,7 @@ return {
 				"isort", -- python formatter
 				"pylint", -- python linter
 				"eslint_d", -- js linter
+				"prettierd",
 			},
 		})
 	end,

@@ -1,13 +1,9 @@
 return {
-	"folke/tokyonight.nvim",
-	lazy = true,
-	opts = { style = "moon" },
+	"catppuccin/nvim",
+	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	priority = 1000, -- make sure to load this before all the other start plugins
 	config = function()
-		local status, _ = pcall(vim.cmd, "colorscheme catppuccin")
-		if not status then
-			print("Colorscheme not found!") -- print error if colorscheme not installed
-			return
-		end
-		require("tokyonight").setup({ transparent = vim.g.transparent_enabled })
+		-- load the colorscheme here
+		vim.cmd([[colorscheme catppuccin]])
 	end,
 }

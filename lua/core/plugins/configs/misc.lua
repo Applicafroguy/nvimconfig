@@ -1,6 +1,6 @@
 return {
 	"arcticicestudio/nord-vim",
---	"nvim-tree/nvim-tree.lua",
+	--	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons",
 	"bluz71/vim-nightfly-guicolors",
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
@@ -26,7 +26,7 @@ return {
 		opts = {},
 	},
 
-	"jose-elias-alvarez/typescript.nvim", -- additional functionality for typescript server (e.g. rename file & update imports)
+	-- "jose-elias-alvarez/typescript.nvim", -- additional functionality for typescript server (e.g. rename file & update imports)
 	-- Lsp
 	"neovim/nvim-lspconfig",
 	"hrsh7th/nvim-cmp", -- Autocompletion plugin

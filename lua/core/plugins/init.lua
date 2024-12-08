@@ -15,6 +15,8 @@ local plugins = {
 	{ import = "core.plugins.configs" },
 }
 
-local opts = {}
+local opts = {
+	install = { colorscheme = { "catppuccin" } },
+}
 
 require("lazy").setup(plugins, opts)
